@@ -1,0 +1,91 @@
+.theme-toggle {
+    color: var(--color);
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    width: 48px;
+    aspect-ratio: 1;
+    padding: 0;
+    border: 0;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    background: transparent;
+    cursor: pointer;
+    z-index: 10;
+    outline: none;
+
+    transition: background 0.2s;
+}
+
+.theme-toggle:is(:hover, :focus-visible) {
+    background: hsl(0 0% 90%);
+}
+  
+.dark .theme-toggle:is(:hover, :focus-visible) {
+    background: hsl(0 0% 30%);
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+.theme-toggle[aria-pressed=true] svg path:last-of-type {
+    display: block;
+}
+  
+.theme-toggle svg {
+    color: currentColor;
+    width: 50%;
+}
+  
+.theme-toggle[aria-pressed=true] svg path:first-of-type,
+.theme-toggle svg path:last-of-type {
+    display: none;
+}
+  
+::view-transition-group(root) {
+    animation-duration: 1.25s;
+}
+::view-transition-new(root),
+::view-transition-old(root) {
+    mix-blend-mode: normal;
+}
+  
+::view-transition-new(root) {
+    animation-name: reveal-light;
+}
+  
+::view-transition-old(root),
+.dark::view-transition-old(root) {
+    animation: none;
+}
+.dark::view-transition-new(root) {
+    animation-name: reveal-dark;
+}
+
+@keyframes reveal-dark {
+    from {
+      clip-path: polygon(-30% 0, -30% 0, -15% 100%, -10% 115%);
+    }
+    to {
+      clip-path: polygon(-30% 0, 130% 0, 115% 100%, -10% 115%);
+    }
+}
+  
+@keyframes reveal-light {
+    from {
+      clip-path: polygon(130% 0, 130% 0, 115% 100%, 110% 115%);
+    }
+    to {
+      clip-path: polygon(130% 0, -30% 0, -15% 100%, 110% 115%);
+    }
+}

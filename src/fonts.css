@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Soria';
+    src: url('./assets/fonts/soria-font.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Fenix';
+    src: url('./assets/fonts/Fenix-Regular.ttf') format('truetype');
+}

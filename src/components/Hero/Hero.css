@@ -1,0 +1,41 @@
+.hero {
+    width: 100%;
+    height: 400vh;
+}
+
+.title {
+    position: absolute;
+    top: calc(50% / 4);
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    width: 75%;
+    height: 50vh;
+    font-size: 4.5rem;
+}
+
+.title-one {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.title-two {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.canvas-container {
+    position: sticky;
+    top: 0;
+    left: 0;
+    height: 100vh;
+}
+
+canvas {
+    background-color: grey;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
